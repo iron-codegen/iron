@@ -1,0 +1,10 @@
+{
+    "resolver": "lts-11.6",
+    "extra-deps": [
+        {
+            "git": "git@github.com:sellout/yaya.git",
+            "commit": "48faaafcdf987419789da09d43c559959b2b9a31",
+            "subdirs": ["core"]
+        }
+    ]
+}

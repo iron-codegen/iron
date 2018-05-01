@@ -1,0 +1,35 @@
+{
+    "name": "iron",
+    "version": "0.0.0",
+
+    "ghc-options": "-Wall -Wincomplete-record-updates -Wincomplete-uni-patterns",
+
+    "default-extensions": [
+        "ApplicativeDo",
+        "DeriveFoldable",
+        "DeriveFunctor",
+        "DeriveTraversable",
+        "FlexibleContexts",
+        "FunctionalDependencies",
+        "LambdaCase",
+        "MultiParamTypeClasses",
+        "MultiWayIf",
+        "OverloadedLists"
+    ],
+
+    "dependencies": [
+        "base",
+        "comonad",
+        "containers",
+        "lens",
+        "mtl",
+        "vector",
+        "yaya"
+    ],
+
+    "library": {
+        "source-dirs": [
+            "library"
+        ]
+    }
+}
