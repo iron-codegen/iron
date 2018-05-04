@@ -18,6 +18,7 @@
     ],
 
     "dependencies": [
+        "ansi-wl-pprint",
         "base",
         "comonad",
         "containers",
@@ -31,5 +32,17 @@
         "source-dirs": [
             "library"
         ]
+    },
+
+    "executables": {
+        "ironc": {
+            "source-dirs": [
+                "executables/ironc"
+            ],
+            "main": "Main.hs",
+            "dependencies": [
+                "iron"
+            ]
+        }
     }
 }

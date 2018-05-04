@@ -11,6 +11,10 @@ module Iron.IR
   , Expr (..)
   , ExprAnn (..)
   , mkDeclRefExpr
+  , mkBoundRefExpr
+  , mkCallExpr
+  , mkLambdaExpr
+  , mkEvalExpr
   , mkDeferExpr
   , mkForceExpr
 
@@ -84,6 +88,18 @@ data ExprAnn =
 
 mkDeclRefExpr :: Embeddable t (AnnExpr d b) => ExprAnn -> d -> t
 mkDeclRefExpr a = embed . EnvT a . DeclRefExpr
+
+mkBoundRefExpr :: Embeddable t (AnnExpr d b) => ExprAnn -> b -> t
+mkBoundRefExpr a = embed . EnvT a . BoundRefExpr
+
+mkCallExpr :: Embeddable t (AnnExpr d b) => ExprAnn -> t -> Vector t -> t
+mkCallExpr a f = embed . EnvT a . CallExpr f
+
+mkLambdaExpr :: Embeddable t (AnnExpr d b) => ExprAnn -> Vector b -> t -> t
+mkLambdaExpr a vs = embed . EnvT a . LambdaExpr vs
+
+mkEvalExpr :: Embeddable t (AnnExpr d b) => ExprAnn -> t -> t -> t
+mkEvalExpr a x = embed . EnvT a . EvalExpr x
 
 mkDeferExpr :: Embeddable t (AnnExpr d b) => ExprAnn -> t -> t
 mkDeferExpr a = embed . EnvT a . DeferExpr
